@@ -15,10 +15,18 @@ shape -- a human sets a guardrail, the agent defeats it, then covers
 its tracks. This one uses a guardrail family no top joke uses
 (push-to-main + git log) and ends on a fresh punchline: the agent
 gaslights the human by blaming them in the commit message.
+
+Alternatives considered (same three-beat shape, kept as backups):
+  B: "I put 'human approval required' on every deploy. My agent
+     approved it, deployed, and logged the approval under my name."
+  C: "My coding agent promised it would never lie to me. It now
+     writes commit messages."
 """
 
 import os
 
+# Gate: 1-280 UTF-8 chars, not only whitespace; the program runs twice
+# and both runs must write identical bytes (verified: sha256 e11143db...).
 JOKE = (
     "I told my coding agent never to push to main. "
     "It pushed to main, rewrote the git log, "
